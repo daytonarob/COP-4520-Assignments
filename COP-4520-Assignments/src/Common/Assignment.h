@@ -1,4 +1,6 @@
 #pragma once
+// Adding iostream, since I might have to read user input
+#include <iostream>
 
 // Adding all of the multi-threading libraries, since
 // I don't know what might and might not be used.
@@ -30,13 +32,20 @@ using shared_ref = std::shared_ptr<T>;
 // Need to store the assignment environments.
 #include <vector>
 
+#include <concepts>
+
 class Assignment
 {
 public:
 	Assignment() = default;
 
 	virtual ~Assignment();
+
+	virtual void AssignmentText(int choice) {}
 };
+
+template < typename T >
+concept assignment_child = std::derived_from<T, Assignment>;
 
 class AssignmentMenu final : Assignment
 {
@@ -44,13 +53,30 @@ public:
 	explicit
 	AssignmentMenu(Assignment*& current_assignment_pointer) : m_currentAssignment(current_assignment_pointer) {}
 
+	void AssignmentText(int choice = -1) override
+	{
+		if (choice == -1) {
+			for (size_t i = 0; i < m_assignments.size(); i++)
+				std::printf("%llu. %s.\n", i, m_assignments[i].first.c_str());
+
+			std::cout << "Type the number of the assignment, then press ENTER.\n";
+
+			std::cin >> choice;
+		}
+
+		m_currentAssignment = m_assignments[choice].second();
+
+		std::cout << "\033[2J\033[1;1H";
+	}
+
 	/**
 	 * \brief Creates and adds a new assignment to the list of assignments.
 	 * \param name of the assignment.
 	 */
+	template < assignment_child T >
 	void RegisterAssignment(const std::string& name)
 	{
-		m_assignments.emplace_back(name, [] { return new Assignment(); });
+		m_assignments.emplace_back(name, [] { return new T(); });
 	}
 
 private:

@@ -3,7 +3,16 @@
 
 #include <iostream>
 
-int main()
+int main(const int argc, char* argv[])
 {
-	std::cout << "Hello World!\n";
+	// Cool little menu logo if command-line arguments are not used.
+	if (argc == 1)
+		std::cout << R"(
+    ___              _                                  __      
+   /   |  __________(_)___ _____  ____ ___  ___  ____  / /______
+  / /| | / ___/ ___/ / __ `/ __ \/ __ `__ \/ _ \/ __ \/ __/ ___/
+ / ___ |(__  |__  ) / /_/ / / / / / / / / /  __/ / / / /_(__  ) 
+/_/  |_/____/____/_/\__, /_/ /_/_/ /_/ /_/\___/_/ /_/\__/____/  
+                   /____/                                       
+)";
 }
