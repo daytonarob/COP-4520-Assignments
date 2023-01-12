@@ -39,7 +39,7 @@ class Assignment
 public:
 	Assignment() = default;
 
-	virtual ~Assignment();
+	virtual ~Assignment() = default;
 
 	virtual void AssignmentText(int choice) {}
 };
@@ -47,7 +47,7 @@ public:
 template < typename T >
 concept assignment_child = std::derived_from<T, Assignment>;
 
-class AssignmentMenu final : Assignment
+class AssignmentMenu final : public Assignment
 {
 public:
 	explicit
@@ -64,9 +64,9 @@ public:
 			std::cin >> choice;
 		}
 
-		m_currentAssignment = m_assignments[choice].second();
-
 		std::cout << "\033[2J\033[1;1H";
+
+		m_currentAssignment = m_assignments[choice].second();
 	}
 
 	/**

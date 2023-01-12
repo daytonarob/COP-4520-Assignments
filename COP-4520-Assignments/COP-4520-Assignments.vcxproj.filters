@@ -18,9 +18,15 @@
     <ClCompile Include="src\COP-4520-Assignments.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Assignments\Assignment_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\Assignment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Assignments\Assingment_1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
