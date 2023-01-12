@@ -25,7 +25,7 @@ int main(const int argc, char* argv[])
 
 	menu->RegisterAssignment<Assignment_1>("Prime statistics");
 
-	menu->AssignmentText();
+	current_assignment->AssignmentText();
 
 	delete current_assignment;
 

@@ -41,7 +41,7 @@ public:
 
 	virtual ~Assignment() = default;
 
-	virtual void AssignmentText(int choice) {}
+	virtual void AssignmentText(int choice = -1) {}
 };
 
 template < typename T >

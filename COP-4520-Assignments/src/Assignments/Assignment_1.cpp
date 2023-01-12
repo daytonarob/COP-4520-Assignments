@@ -8,23 +8,23 @@ Assignment_1::Assignment_1()
 	auto start = std::chrono::high_resolution_clock::now();
 
 	// Create a vector of 8 threads
-	std::vector<std::shared_ptr<std::thread>> work_threads;
+	std::vector<std::thread> work_threads;
 
 	// Since there is a range of 1 to 10^8, each thread
 	// can handle a range of (10^8)/8, assign each thread
 	// their respective range.
 	work_threads.reserve(THREAD_COUNT);
 	for (int i = 0; i < THREAD_COUNT; i++)
-		work_threads.emplace_back(std::make_shared<std::thread>(std::mem_fn(&Assignment_1::PrimeRange), this,
-		                                                        i * (MAX / THREAD_COUNT) + 1,
-		                                                        (i + 1) * (MAX / THREAD_COUNT)));
+		work_threads.emplace_back(std::mem_fn(&Assignment_1::PrimeRange), this,
+		                          i * (MAX / THREAD_COUNT) + 1,
+		                          (i + 1) * (MAX / THREAD_COUNT));
 
 	// Execute the threads
 	for (auto& thread : work_threads) {
-		// Make sure that the thread is not null, and
-		// is it not already executing something
-		if (thread && thread->joinable())
-			thread->join();
+		// Make sure the current thread is not
+		// already executing something
+		if (thread.joinable())
+			thread.join();
 	}
 
 	// Now, get the time when we finished the program.
