@@ -26,5 +26,7 @@ int main(const int argc, char* argv[])
 		delete menu;
 
 	std::cout << "Press the ENTER key to exit.\n";
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cin.get();
 }
