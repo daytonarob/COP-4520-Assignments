@@ -7,33 +7,37 @@ Assignment_1::Assignment_1()
 	// To know the total elapsed time, get the current time when the program started.
 	auto start = std::chrono::high_resolution_clock::now();
 
-	// Create a vector of 8 threads
-	std::vector<std::thread> work_threads;
+	// Create a vector of 8 threads, they're really futures,
+	// but they are an abstract wrap on threads, and I am
+	// explicitly make the async calls to be async.
+	std::vector<std::future<void>> work_threads;
 
 	// Since there is a range of 1 to 10^8, each thread
 	// can handle a range of (10^8)/8, assign each thread
 	// their respective range.
 	work_threads.reserve(THREAD_COUNT);
 	for (int i = 0; i < THREAD_COUNT; i++)
-		work_threads.emplace_back(std::mem_fn(&Assignment_1::PrimeRange), this,
-		                          i * (MAX / THREAD_COUNT) + 1,
-		                          (i + 1) * (MAX / THREAD_COUNT));
+		work_threads.emplace_back(std::async(std::launch::async, &Assignment_1::PrimeRange, this,
+		                                     i * (MAX / THREAD_COUNT) + 1,
+		                                     (i + 1) * (MAX / THREAD_COUNT)));
 
 	// Execute the threads
-	for (auto& thread : work_threads) {
-		// Make sure the current thread is not
-		// already executing something
-		if (thread.joinable())
-			thread.join();
-	}
+	for (auto& thread : work_threads)
+		thread.wait();
 
 	// Now, get the time when we finished the program.
 	auto end = std::chrono::high_resolution_clock::now();
 
 	auto total_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 
-	std::printf("Execution time: %lldms\tTotal primes found: %d\tSum of all primes: %lld", total_time,
+	std::printf("Execution time: %lldms\tTotal primes found: %d\tSum of all primes: %lld\n", total_time,
 	            m_primesCount.load(), m_primesSum.load());
+
+	std::cout << "Top 10 primes:\n";
+	while (!m_topPrimes.empty()) {
+		std::printf("%d\n", m_topPrimes.top());
+		m_topPrimes.pop();
+	}
 }
 
 bool Assignment_1::IsPrime(const int num)

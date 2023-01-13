@@ -6,6 +6,7 @@
 // I don't know what might and might not be used.
 #include <atomic>
 #include <condition_variable>
+#include <future>
 #include <mutex>
 #include <thread>
 
@@ -56,6 +57,16 @@ public:
 	void AssignmentText(int choice = -1) override
 	{
 		if (choice == -1) {
+			// Cool little menu logo if command-line arguments are not used.
+			std::cout << R"(
+    ___              _                                  __      
+   /   |  __________(_)___ _____  ____ ___  ___  ____  / /______
+  / /| | / ___/ ___/ / __ `/ __ \/ __ `__ \/ _ \/ __ \/ __/ ___/
+ / ___ |(__  |__  ) / /_/ / / / / / / / / /  __/ / / / /_(__  ) 
+/_/  |_/____/____/_/\__, /_/ /_/_/ /_/ /_/\___/_/ /_/\__/____/  
+                   /____/                                       
+)";
+
 			for (size_t i = 0; i < m_assignments.size(); i++)
 				std::printf("%llu. %s.\n", i, m_assignments[i].first.c_str());
 
