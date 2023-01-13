@@ -68,7 +68,7 @@ public:
 )";
 
 			for (size_t i = 0; i < m_assignments.size(); i++)
-				std::printf("%llu. %s.\n", i, m_assignments[i].first.c_str());
+				std::printf("%llu. %s.\n", i + 1, m_assignments[i].first.c_str());
 
 			std::cout << "Type the number of the assignment, then press ENTER.\n";
 
@@ -77,7 +77,7 @@ public:
 
 		std::cout << "\033[2J\033[1;1H";
 
-		m_currentAssignment = m_assignments[choice].second();
+		m_currentAssignment = m_assignments[--choice].second();
 	}
 
 	/**

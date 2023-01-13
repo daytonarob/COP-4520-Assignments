@@ -4,6 +4,10 @@
 #include "Assignments/Assingment_1.h"
 #include "Common/Assignment.h"
 
+const int MIN_ASSIGNMENT = 1;
+
+const int MAX_ASSIGNMENT = 1;
+
 int main(const int argc, char* argv[])
 {
 	// Make the assignments menu, and the current assignment that the user will enter
@@ -15,9 +19,11 @@ int main(const int argc, char* argv[])
 	menu->RegisterAssignment<Assignment_1>("Prime statistics");
 
 	// Check if command-line arguments are being passed
-	if (argc == 2)
-		current_assignment->AssignmentText(std::strtol(argv[1], nullptr, 10));
-	else
+	if (argc == 2) {
+		if (const int command = std::strtol(argv[1], nullptr, 10);
+			command >= MIN_ASSIGNMENT && command <= MAX_ASSIGNMENT)
+			current_assignment->AssignmentText(command);
+	} else
 		current_assignment->AssignmentText();
 
 	delete current_assignment;
