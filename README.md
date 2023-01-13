@@ -11,8 +11,7 @@ Simply download the provided `.exe`* file provided in [x64/Release/](https://git
 If you are going to run the program from a **windows** terminal, firstly, when you are inside the terminal and already in the directory of where the `.exe`* file is, you start by typing:
 
 ```
- .\COP-4520-Assignments.exe
-
+.\COP-4520-Assignments.exe
 ```
 
 You can simply press the ENTER key after that, and the program will start with no issues. If you want to immediately start at a particular assignment you type a space, *then* the **number** of the assignment you want to access. So, if you wanted to access assignment 1, you would type:
