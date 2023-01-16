@@ -45,3 +45,7 @@ You only have to download the `src` folder, since that is what contains all sour
 ---
 
 ❗Might try to add makefiles at some point, but do not count on it.
+
+## Reports on Each Assignment
+
+Each assignment report is written in Markdown so it can be easily read from inside github. They can be found in [COP-4520-Assignments/COP-4520-Assignments/src/Assignment_Reports/](https://github.com/GameDevSlate/COP-4520-Assignments/tree/master/COP-4520-Assignments/src/Assignment_Reports) (or you can click on the link).
