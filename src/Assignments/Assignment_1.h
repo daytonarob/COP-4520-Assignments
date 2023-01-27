@@ -1,7 +1,7 @@
 #pragma once
-#include "../Common/Assignment.h"
-
 #include <queue>
+
+#include "../Common/Assignment.h"
 
 class Assignment_1 final : public Assignment
 {

@@ -52,7 +52,7 @@ class AssignmentMenu final : public Assignment
 {
 public:
 	explicit
-	AssignmentMenu(Assignment*& current_assignment_pointer) : m_currentAssignment(current_assignment_pointer) {}
+		AssignmentMenu(Assignment*& current_assignment_pointer) : m_currentAssignment(current_assignment_pointer) {}
 
 	void AssignmentText(int choice = -1) override
 	{
@@ -95,5 +95,5 @@ private:
 	Assignment*& m_currentAssignment;
 
 	// What holds all of the assignments.
-	std::vector<std::pair<std::string, std::function<Assignment*()>>> m_assignments;
+	std::vector<std::pair<std::string, std::function<Assignment* ()>>> m_assignments;
 };

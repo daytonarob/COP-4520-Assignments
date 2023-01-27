@@ -1,0 +1,1 @@
+add_library(Assignment INTERFACE Assignment.h)

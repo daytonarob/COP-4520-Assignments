@@ -1,0 +1,1 @@
+add_library(Assignment_1 Assignment_1.h Assignment_1.cpp)

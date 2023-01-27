@@ -1,4 +1,4 @@
-#include "Assingment_1.h"
+#include "Assignment_1.h"
 
 #include <chrono>
 

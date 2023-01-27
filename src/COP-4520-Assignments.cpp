@@ -1,8 +1,9 @@
-// COP-4520-Assignments.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// COP-4520-Assignments-Converted.cpp : Defines the entry point for the application.
 //
 
-#include "Assignments/Assingment_1.h"
+#include "Assignments/Assignment_1.h"
 #include "Common/Assignment.h"
+
 
 const int MIN_ASSIGNMENT = 1;
 
