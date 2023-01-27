@@ -52,8 +52,9 @@ bool Assignment_1::IsPrime(const int num)
 	if (num % 2 == 0) return false;
 
 	// Now the next prime is 3, and we can start from there
-	// to iteratively check if the number that is being check
-	// is prime or not (Sieve of Eratosthenes).
+	// to iteratively check if the number that is being checked
+	// can be divisible or not. We are only checking up to
+	// the square root of the number.
 	for (int i = 3; (i * i) <= num; i += 2) {
 		if (num % i == 0)
 			return false;
