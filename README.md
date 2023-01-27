@@ -53,4 +53,4 @@ Otherwise, you could simply use the terminal GUI that I made for accessing assig
 
 ## Reports on Each Assignment
 
-Each assignment report is written in Markdown so it can be easily read from inside github. They can be found in [COP-4520-Assignments/COP-4520-Assignments/src/Assignment_Reports/](https://github.com/GameDevSlate/COP-4520-Assignments/tree/master/COP-4520-Assignments/src/Assignment_Reports) (or you can click on the link).
+Each assignment report is written in Markdown so it can be easily read from inside github. They can be found in [COP-4520-Assignments/src/Assignments/Assignment_Reports/](https://github.com/GameDevSlate/COP-4520-Assignments/tree/master/src/Assignments/Assignment%20Reports) (or you can click on the link).
