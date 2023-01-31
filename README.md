@@ -24,7 +24,7 @@ cmake -S . -B <build directory>
 cmake --build <build directory> --config Release
 ```
 
-I lot ouf people like to name the build directory `out/build` or `build`, but this is up to you.
+A lot of people like to name the build directory `out/build` or `build`, but this is up to you.
 
 ### Running the Project
 Inside of the *build directory* there are two ways you can run the program on a terminal depending on your operating system:
